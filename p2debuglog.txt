@@ -1,0 +1,63 @@
+ gcc -g p2final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x83a: file p2final.c, line 30.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:30
+30    n1=input();
+(gdb) n
+enter the three number
+2
+31    n2=input();
+(gdb) n
+enter the three number
+3
+32    n3=input();
+(gdb) n
+enter the three number
+4
+33  n4=cmp(n1,n2,n3);
+(gdb) s
+cmp (a=2, b=3, c=4) at p2final.c:9
+9     int large=0;
+(gdb) n
+10    if(a>b){
+(gdb) n
+17      if(b>c)
+(gdb) n
+20      large=c;
+(gdb) n
+22    return large;
+(gdb) n
+23  }
+(gdb) n
+main () at p2final.c:34
+34  output(n4);
+(gdb) s
+output (p=4) at p2final.c:25
+25    printf("the largest is %d\n",p);
+(gdb) n
+the largest is 4
+27  }
+(gdb) c
+Continuing.
+[Inferior 1 (process 174) exited normally]
+(gdb) 
